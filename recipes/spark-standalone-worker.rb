@@ -82,8 +82,8 @@ monit_wrapper_monitor worker_service_name do
   variables \
     cmd_line_pattern: node['apache_spark']['standalone']['worker_cmdline_pattern'],
     cmd_line: worker_runner_script,
-    user: 'root',  # The worker needs to run as root initially to use ulimit.
-    group: 'root'
+    user: spark_user, 
+    group: spark_group
 end
 
 monit_wrapper_service worker_service_name do
